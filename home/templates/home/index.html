@@ -1,8 +1,49 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+
 {% block content %}
 
-<h1>Page is working</h1>
+
+<div class= "main-wrapper">
+  <div class="main">
+    <div class="container">
+      <div class="hexagon">
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <div class="img-wrapper" style="background-image: url('/media/leafy_mask2.jpg');"></div>
+          <div class="hexagon-text">Masks</div>
+        </a>
+      </div>
+      <div class="hexagon">
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <div class="img-wrapper" style="background-image: url('/media/leah-with-figure.JPG');"></div>
+          <div class="hexagon-text">About the artist</div>
+        </a>
+      </div>
+      <div class="hexagon">
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <div class="img-wrapper" style="background-image: url('/media/skull_halloween_pirate.JPG');"></div>
+          <div class="hexagon-text">Children</div>
+        </a>
+      </div>
+      <div class="hexagon">
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <div class="img-wrapper" style="background-image: url('/media/Lookout.jpg');"></div>
+          <div class="hexagon-text">Figurines</div>
+        </a>
+      </div>
+      <div class="hexagon">
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <div class="img-wrapper" style="background-image: url('/media/penguin_hallway.JPG');"></div>
+          <div class="hexagon-text">Animals</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 {% endblock %}
