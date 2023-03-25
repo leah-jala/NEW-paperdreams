@@ -24,13 +24,16 @@
     display: inline-block;
     font-size: initial;
     clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
-    background: red;
+    background: #eca1a6;
     margin-bottom: calc(var(--m) - var(--s) * 0.2885);
     overflow: hidden;
   }
   
+  .empty {
+    display: none
+  }
   .hexagon:nth-child(odd) {
-    background: green;
+    background: #bdcebe;
   }
   
   .container::before {
@@ -82,15 +85,17 @@
     font-weight: bold;
     text-align: center;
     opacity: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.8);
     transition: opacity 0.3s;
   }
   
-  .hexagon:hover .img-wrapper {
-    opacity: 0.3;
+  .shop-all {
+    align-items: center;
+    justify-content: center;
   }
   
-  .hexagon:hover .hexagon-text {
+  .shop-all .hexagon-text {
+    background-color: #bdcebe;
     opacity: 1;
   }
   
@@ -116,6 +121,26 @@
       shape-outside: none;
     }
   }
+
+/* Devices that can't hover */
+@media (hover:none) {
+  .img-wrapper {
+    opacity: 1;
+  }
   
+  .hexagon-text {
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: none;
+    z-index: 2; /* Bring the hexagon-text in front of the img-wrapper */
+  }
+  .hexagon .hexagon-text {
+    opacity: 1;
+  }
   
+  .hexagon:hover .hexagon-text {
+    opacity: 0;
+  }
+}
+
+
   /* Hexagon credits: https://css-tricks.com/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries/ */
