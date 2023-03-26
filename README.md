@@ -353,10 +353,12 @@ Language Validators and format helpers
 
 # Credits
 
-# General resources
+## General resources
 - [MDN Web docs](https://developer.mozilla.org/en-US/docs/Web/CSS/background-image) for help with background images, and their positioning.
-# Resources consulted to create the hexagon shapes
+## Resources consulted to create the hexagon shapes
 - [CSS Tricks](https://css-tricks.com/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries/) 
 - [Temani Afif's Codepen](https://codepen.io/t_afif/pen/zYoZBOy) of a responsive hexagon grid
 - [kizu's public fiddles](http://jsfiddle.net/kizu/bhGn4/), found via StackOverflow.
 - [Darsain's Codpen](https://codepen.io/darsain/pen/DQKWqM) 
+## Media queries to handle hover properties
+- [Dealing with hover on mobile, Kevin Powell, Youtube](https://www.google.com/search?q=hover+effect+on+phone&oq=hover+effect+on+phone&aqs=chrome..69i57j0i22i30l2j0i390i650l5.7290j0j7&sourceid=chrome&ie=UTF-8#kpvalbx=_v3cfZODdPISZhbIPwaaSiAg_35)
