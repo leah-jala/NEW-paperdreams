@@ -13,7 +13,6 @@
 
 .container {
   font-size: 0; /*disable white space between inline block element */
-  margin-left: 80px;
 }
 
 .hexagon {
@@ -21,7 +20,6 @@
   width: var(--s);
   margin: var(--m);
   height: calc(var(--s) * 1.1547);
-  display: inline-block;
   font-size: initial;
   clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
   background: #eca1a6;
@@ -100,7 +98,8 @@
 }
 
 
-@media (max-width: 436px) {
+
+@media (max-width: 542px) {
   .container {
     margin: 0 auto;
   }
@@ -119,6 +118,7 @@
     width: calc(var(--s) * 0.2);
     height: 100%;
     shape-outside: none;
+    float: none;
   }
 }
 
@@ -153,5 +153,10 @@
 }
 }
 
-
+@media (max-width: 295px) {
+  .hexagon {
+    clip-path: none;
+    max-inline-size: 100%;
+}
+}
 /* Hexagon credits: https://css-tricks.com/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries/ */
