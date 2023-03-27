@@ -5,6 +5,10 @@ html {
     height: 100%;
 }
 
+.header-container {
+    margin-top: 100px;
+}
+
 .collapse {
     background-color: #e2ebdb;
 }
