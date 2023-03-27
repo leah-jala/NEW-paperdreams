@@ -5,16 +5,66 @@ html {
     height: 100%;
 }
 
+.collapse {
+    background-color: #e2ebdb;
+}
+
 body {
     background-color: #e2ebdb;
     font-family: 'Roboto', sans-serif;
+    color: black;
 }
+
+/* from Bulma via Boutique Aod for Font Awesome icons */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+    color: black;
+}
+
+/* From Boutique Ado - buttons */
+
+.shop-now-button {
+    background: black;
+    color: white;
+    min-width: 260px;
+}
+
+.btn-black {
+    background: black;
+    color: white;
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus,
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: white;
+}
+
+.text-black {
+    color: #000 !important;
+}
+
+.border-black {
+    border: 1px solid black !important;
+}
+
+/* Headings */
 
 h1 {
     font-family: 'Henny Penny';
     font-size: 32px;
 
 } 
+
+/* Footer */
 
 footer {
     background-color: #e2ebdb;
