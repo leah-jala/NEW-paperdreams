@@ -12,4 +12,10 @@ body {
 
 h1 {
     font-family: 'Henny Penny';
+    font-size: 32px;
+
 } 
+
+footer {
+    background-color: #e2ebdb;
+}
