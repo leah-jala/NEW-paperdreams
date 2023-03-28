@@ -44,7 +44,7 @@
 </head>
 
 <body>
-  <header class="container-fluid fixed-top px-0 mb-3">
+  <header class="container-fluid d-flex justify-content-center fixed-top px-0 mb-3">
     <nav class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand" href="{% url 'home' %}"><h1>Paper Dreams</h1></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -75,10 +75,8 @@
               <a class="dropdown-item" href="#">Children</a>
               <a class="dropdown-item" href="#">Figurines</a>
               <a class="dropdown-item" href="#">Masks</a>
+              <a class="dropdown-item" href="#">Prints & Paintings</a>
             </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
           </li>
         </ul>
         <div class="col-12 col-lg-6 my-auto py-1 py-lg-0">
@@ -86,7 +84,7 @@
             <li class="list-inline-item">
               <a class="text-black nav-link d-block" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <div class="text-center">
-                      <div><i class="fas fa-search fa-lg"></i></div>
+                      <div><i class="fas fa-search fa-sm"></i></div>
                       <p class="my-0">Search</p>
                   </div>
               </a>
@@ -108,7 +106,7 @@
           <li class="list-inline-item dropdown">
             <a class="text-black nav-link d-block" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="text-center">
-                    <div><i class="fas fa-user fa-lg"></i></div>
+                    <div><i class="fas fa-user fa-sm"></i></div>
                     <p class="my-0">My Account</p>
                 </div>
             </a>
@@ -128,7 +126,7 @@
             <li class="list-inline-item">
               <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link d-block" href="">
                   <div class="text-center">
-                      <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                      <div><i class="fas fa-shopping-bag fa-sm"></i></div>
                       <p class="my-0">
                           {% if grand_total %}
                               ${{ grand_total|floatformat:2 }}
@@ -154,7 +152,7 @@
 
   {% block content %}
   {% endblock %}
-  <footer class=" fixed-bottom">
+  <footer class="fixed-bottom">
     <ul class="nav justify-content-center border-bottom pb-3">
       <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contact</a></li>
       <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Shipping & Returns</a></li>

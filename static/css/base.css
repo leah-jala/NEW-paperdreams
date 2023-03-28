@@ -72,16 +72,6 @@ h1 {
 
 } 
 
-.overlay {
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
-	position: fixed;
-	background: #ada397;
-	z-index: -1;
-}
-
 /* Footer */
 
 footer {

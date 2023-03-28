@@ -94,7 +94,7 @@
   transition: opacity 0.3s;
 }
 
-@media (max-width: 464px) {
+@media (max-width: 492px) {
   .container {
     margin: 0 auto;
     padding: 0;
