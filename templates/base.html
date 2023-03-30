@@ -45,14 +45,14 @@
 
 <body>
   <header class="container-fluid d-flex justify-content-center fixed-top px-0 mb-3">
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="w-100 navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand" href="{% url 'home' %}"><h1>Paper Dreams</h1></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="w-100 collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-3">
           <li class="nav-item active">
             <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
@@ -72,15 +72,15 @@
             </a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="{% url 'products' %}">All Artwork</a>
-              <a class="dropdown-item" href="#">Animals</a>
-              <a class="dropdown-item" href="#">Children</a>
-              <a class="dropdown-item" href="#">Figurines</a>
-              <a class="dropdown-item" href="#">Masks</a>
-              <a class="dropdown-item" href="#">Prints & Paintings</a>
+              <a class="dropdown-item" href="{% url 'products' %}?category=animals">Animals</a>
+              <a class="dropdown-item" href="{% url 'products' %}?category=children">Children</a>
+              <a class="dropdown-item" href="{% url 'products' %}?category=figurines">Figurines</a>
+              <a class="dropdown-item" href="{% url 'products' %}?category=masks">Masks</a>
+              <a class="dropdown-item" href="{% url 'products' %}?category=prints&paintings">Prints & Paintings</a>
             </div>
           </li>
         </ul>
-        <div class="col-12 col-lg-6 my-auto py-1 py-lg-0">
+        <div class="w-100 col-12 col-lg-6 my-auto ml-auto py-1 py-lg-0">
           <ul class="list-inline list-unstyled text-center text-lg-right my-0">
             <li class="list-inline-item">
               <a class="text-black nav-link d-block" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -5,6 +5,12 @@ html {
     height: 100%;
 }
 
+body {
+    background-color: #e2ebdb;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+}
+
 header {
     background: #e2ebdb;
 
@@ -17,11 +23,6 @@ header {
     background-color: #e2ebdb;
 }
 
-body {
-    background-color: #e2ebdb;
-    font-family: 'Roboto', sans-serif;
-    color: black;
-}
 
 .navbar {
     background-color: #e2ebdb;
