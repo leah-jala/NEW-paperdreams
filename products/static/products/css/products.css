@@ -3,18 +3,11 @@
     margin-top: auto;
 }
 
-/* .category-link {
-    display: inline-block;
-    margin-right: 10px;
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    text-decoration: none;
-    color: #333;
-  }
-  
-  .category-link.active {
-    background-color: #333;
-    color: #fff;
-  }
-   */
+.card-img-top {
+    max-height: 400px;
+    object-fit: contain;
+}
+
+.image-container {
+    background: #f2f2f2;
+}
