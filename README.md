@@ -364,3 +364,7 @@ Language Validators and format helpers
 - [Dealing with hover on mobile, Kevin Powell, Youtube](https://www.google.com/search?q=hover+effect+on+phone&oq=hover+effect+on+phone&aqs=chrome..69i57j0i22i30l2j0i390i650l5.7290j0j7&sourceid=chrome&ie=UTF-8#kpvalbx=_v3cfZODdPISZhbIPwaaSiAg_35)
 # My Account and shopping bag feature of header
 - Boutique Ado walkthrough
+
+# Scroll to top button on products page
+-[The Joomla Forum, How to scroll to the top smoothly, contributiion by "LikeStuff"](https://forum.joomla.org/viewtopic.php?f=706&t=971785)
+- [Create Scroll Back to Top Button using jQuery and CSS](https://www.codexworld.com/back-to-top-button-using-jquery-css/#:~:text=Use%20the%20jQuery%20click%20event,to%20the%20top%20using%20jQuery.)

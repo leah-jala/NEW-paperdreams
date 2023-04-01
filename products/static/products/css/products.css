@@ -1,16 +1,3 @@
-.card-body {
-    height: 50px;
-    margin-top: auto;
-}
-
-.card-img-top {
-    max-height: 400px;
-    object-fit: contain;
-}
-
-.image-container {
-    background: #f2f2f2;
-}
 
 .btn-group {
     flex-wrap: wrap;

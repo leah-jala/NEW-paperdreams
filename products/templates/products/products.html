@@ -21,102 +21,107 @@
             <h2 class="text-center">Art Work for Sale</h2>
             <div class="container">
                 <div class="btn-group flex-wrap justify-content-center mt-3" role="group" id="category-links">
-                    <a href="{% url 'products' %}" class="btn btn-outline-secondary mx-2 my-1">All Artwork</a>
-                    <a href="{% url 'products' %}?category=animals" class="btn btn-outline-secondary mx-2 my-1">Animals</a>
-                    <a href="{% url 'products' %}?category=children" class="btn btn-outline-secondary mx-2 my-1">Children</a>
-                    <a href="{% url 'products' %}?category=figurines" class="btn btn-outline-secondary mx-2 my-1">Figurines</a>
-                    <a href="{% url 'products' %}?category=masks" class="btn btn-outline-secondary mx-2 my-1" data-category="masks">Masks</a>
-                    <a href="{% url 'products' %}?category=prints&paintings" class="btn btn-outline-secondary mx-2 my-1">Prints & Paintings</a>
-                </div>    
-            </div>               
+                    <a href="{% url 'products' %}?sort=category&direction=asc"
+                        class="btn btn-outline-secondary mx-2 my-1">All Artwork</a>
+                    <a href="{% url 'products' %}?category=animals"
+                        class="btn btn-outline-secondary mx-2 my-1">Animals</a>
+                    <a href="{% url 'products' %}?category=children"
+                        class="btn btn-outline-secondary mx-2 my-1">Children</a>
+                    <a href="{% url 'products' %}?category=figurines"
+                        class="btn btn-outline-secondary mx-2 my-1">Figurines</a>
+                    <a href="{% url 'products' %}?category=masks" class="btn btn-outline-secondary mx-2 my-1"
+                        data-category="masks">Masks</a>
+                    <a href="{% url 'products' %}?category=prints&paintings"
+                        class="btn btn-outline-secondary mx-2 my-1">Prints & Paintings</a>
+                </div>
+            </div>
             <hr class="w-50 mb-1">
         </div>
     </div>
-    
-    </div>
-    <div class="row">
-        <div class="product-container col-10 offset-1">
-            <div class="row mt-1 mb-2">
-                <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
-                    <div class="sort-select-wrapper w-50">
-                        <select id="sort-selector"
-                            class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
-                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...
-                            </option>
-                            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price
-                                (low to high)</option>
-                            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price
-                                (high to low)</option>
-                            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name
-                                (A-Z)</option>
-                            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name
-                                (Z-A)</option>
-                            <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>
-                                Category (A-Z)</option>
-                            <option value="category_desc"
-                                {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 order-md-first">
-                    <p class="text-muted mt-3 text-center text-md-left">
-                        {% if current_categories %}
-                        <strong>{{ current_categories.0.friendly_name }}</strong> |
-                        {% else %}
-                        <strong>All Categories</strong> |
-                        {% endif %}
-                        {{ products|length }} Artworks
-                    </p>
+
+</div>
+<div class="row">
+    <div class="product-container col-10 offset-1">
+        <div class="row mt-1 mb-2">
+            <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                <div class="sort-select-wrapper w-50">
+                    <select id="sort-selector"
+                        class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                        <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...
+                        </option>
+                        <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price
+                            (Low to High)</option>
+                        <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price
+                            (High to Low)</option>
+                        <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name
+                            (A-Z)</option>
+                        <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name
+                            (Z-A)</option>
+                        <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>
+                            Category (A-Z)</option>
+                        <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>
+                            Category (Z-A)</option>
+                    </select>
                 </div>
             </div>
-            <div class="row">
-                {% if products %}
-                {% for product in products %}
-                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-4">
-                    <div class="card h-100 border-0 image-container">
-                        {% if product.image %}
-                        <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
-                        </a>
-                        {% else %}
-                        <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
-                                alt="{{ product.name }}">
-                        </a>
-                        {% endif %}
-                        <div class="card-body pb-0">
-                        </div>
-                        <div class="card-footer bg-white pt-0 border-0 text-left">
-                            <div class="row">
-                                <div class="col">
-                                    <p class="mb-0">{{ product.name }}</p>
-                                    <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
-                                    {% if product.category %}
-                                    <p class="small mt-1 mb-0">
-                                        <a class="text-muted"
-                                            href="{% url 'products' %}?category={{ product.category.name }}">
-                                            <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
-                                        </a>
-                                    </p>
-                                    {% endif %}
-                                    {% if product.rating %}
-                                    <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} /
-                                        5</small>
-                                    {% else %}
-                                    <small class="text-muted">No Rating</small>
-                                    {% endif %}
-                                </div>
+            <div class="col-12 col-md-6 order-md-first">
+                <p class="text-muted mt-3 text-center text-md-left">
+                    {% if current_categories %}
+                    <strong>{{ current_categories.0.friendly_name }}</strong> |
+                    {% else %}
+                    <strong>All Categories</strong> |
+                    {% endif %}
+                    {{ products|length }} Artworks
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            {% if products %}
+            {% for product in products %}
+            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-4">
+                <div class="card h-100 border-0 image-container">
+                    {% if product.image %}
+                    <a href="{% url 'product_detail' product.id %}">
+                        <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    </a>
+                    {% else %}
+                    <a href="{% url 'product_detail' product.id %}">
+                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                    </a>
+                    {% endif %}
+                    <div class="card-body pb-0">
+                    </div>
+                    <div class="card-footer bg-white pt-0 border-0 text-left">
+                        <div class="row">
+                            <div class="col">
+                                <p class="mb-0">{{ product.name }}</p>
+                                <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                                {% if product.category %}
+                                <p class="small mt-1 mb-0">
+                                    <a class="text-muted"
+                                        href="{% url 'products' %}?category={{ product.category.name }}">
+                                        <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                                    </a>
+                                </p>
+                                {% endif %}
+                                {% if product.rating %}
+                                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} /
+                                    5</small>
+                                {% else %}
+                                <small class="text-muted"></small>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
                 </div>
-                {% endfor %}
-                {% else %}
-                <p>No products available.</p>
-                {% endif %}
             </div>
+            {% endfor %}
+            {% else %}
+            <p>No products available.</p>
+            {% endif %}
         </div>
     </div>
+</div>
 </div>
 <a href="#top" class="back-to-top" style="display: none;">
     <i class="fas fa-chevron-up"></i>
@@ -126,32 +131,61 @@
 {% block postloadjs %}
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    $(document).ready(function() {
-        let urlParams = new URLSearchParams(window.location.search);
-        let categoryParam = urlParams.get('category');
-        
-        if (categoryParam) {
-            $('#category-links .btn').removeClass('btn-secondary').addClass('btn-outline-secondary');
-            $(`#category-links .btn[href*="${categoryParam}"]`).removeClass('btn-outline-secondary').addClass('btn-secondary');
+$(document).ready(function () {
+    // Set active category link 
+    let urlParams = new URLSearchParams(window.location.search);
+    let categoryParam = urlParams.get('category');
+
+    if (categoryParam) {
+        $('#category-links .btn').removeClass('btn-secondary').addClass('btn-outline-secondary');
+        $(`#category-links .btn[href*="${categoryParam}"]`).removeClass('btn-outline-secondary').addClass(
+            'btn-secondary');
+    } else {
+        $('#category-links .btn[href="{% url "products" %}"]').removeClass('btn-outline-secondary')
+            .addClass('btn-secondary');
+    }
+
+    // Handle visibility of back-to-top button
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            $('.back-to-top').fadeIn();
         } else {
-            $('#category-links .btn[href="{% url "products" %}"]').removeClass('btn-outline-secondary').addClass('btn-secondary');
+            $('.back-to-top').fadeOut();
         }
     });
 
-    $(window).scroll(function() {
-  if ($(this).scrollTop() > 100) {
-    $('.back-to-top').fadeIn();
-  } else {
-    $('.back-to-top').fadeOut();
-  }
-});
+    $('.back-to-top').click(function () {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 800);
+        return false;
+    });
 
-$('.back-to-top').click(function() {
-  $('html, body').animate({ scrollTop: 0 }, 800);
-  return false;
-});
+    // Handle sorting of product list in select box
+    $('#sort-selector').change(function () {
+        var selector = $(this);
+        var currentUrl = new URL(window.location);
 
-    </script>
+        var selectedVal = selector.val();
+        if (selectedVal != "reset") {
+            var sort = selectedVal.split("_")[0];
+            var direction = selectedVal.split("_")[1];
+
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
+
+            window.location.replace(currentUrl);
+        } else {
+            currentUrl.searchParams.delete("sort");
+            currentUrl.searchParams.delete("direction");
+
+            window.location.replace(currentUrl);
+        }
+    })
+});
+</script>
+
 {% endblock %}
 
 {% endblock %}

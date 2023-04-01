@@ -23,7 +23,10 @@ header {
     background-color: #e2ebdb;
 }
 
-
+a.dropdown-item.active {
+    background: white;
+    color: #212529;
+}
 .navbar {
     background-color: #e2ebdb;
 }
@@ -76,6 +79,8 @@ h1 {
     font-size: 32px;
 
 } 
+
+
 
 /* Footer */
 
