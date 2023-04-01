@@ -81,4 +81,13 @@ h1 {
 
 footer {
     background-color: #e2ebdb;
+    height: 10vh;
 }
+
+/* adjust the height of the footer for smaller screens */
+@media screen and (max-width: 768px) {
+    footer {
+      height: 15vh; 
+    }
+  }
+  

@@ -14,10 +14,11 @@
 {% endblock %}
 
 {% block content %}
-<div class="overlay"></div>
 <div class="container-fluid">
     <div class="row">
+
         <div class="col text-center mt-3">
+            <h2 class="text-center">Art Work for Sale</h2>
             <div class="container">
                 <div class="btn-group flex-wrap justify-content-center mt-3" role="group" id="category-links">
                     <a href="{% url 'products' %}" class="btn btn-outline-secondary mx-2 my-1">All Artwork</a>
@@ -117,6 +118,10 @@
         </div>
     </div>
 </div>
+<a href="#top" class="back-to-top" style="display: none;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+
 
 {% block postloadjs %}
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -132,6 +137,20 @@
             $('#category-links .btn[href="{% url "products" %}"]').removeClass('btn-outline-secondary').addClass('btn-secondary');
         }
     });
+
+    $(window).scroll(function() {
+  if ($(this).scrollTop() > 100) {
+    $('.back-to-top').fadeIn();
+  } else {
+    $('.back-to-top').fadeOut();
+  }
+});
+
+$('.back-to-top').click(function() {
+  $('html, body').animate({ scrollTop: 0 }, 800);
+  return false;
+});
+
     </script>
 {% endblock %}
 
