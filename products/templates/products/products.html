@@ -18,15 +18,16 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col text-center mt-3">
-            <h2 class="logo-font">Art Work for Sale</h2>
-            <div class="d-flex justify-content-center mt-3" id="category-links">
-                <a href="{% url 'products' %}" class="btn btn-outline-secondary mx-2 my-1">All Artwork</a>
-                <a href="{% url 'products' %}?category=animals" class="btn btn-outline-secondary mx-2 my-1">Animals</a>
-                <a href="{% url 'products' %}?category=children" class="btn btn-outline-secondary mx-2 my-1">Children</a>
-                <a href="{% url 'products' %}?category=figurines" class="btn btn-outline-secondary mx-2 my-1">Figurines</a>
-                <a href="{% url 'products' %}?category=masks" class="btn btn-outline-secondary mx-2 my-1" data-category="masks">Masks</a>
-                <a href="{% url 'products' %}?category=prints&paintings" class="btn btn-outline-secondary mx-2 my-1">Prints & Paintings</a>
-            </div>                   
+            <div class="container">
+                <div class="btn-group flex-wrap justify-content-center mt-3" role="group" id="category-links">
+                    <a href="{% url 'products' %}" class="btn btn-outline-secondary mx-2 my-1">All Artwork</a>
+                    <a href="{% url 'products' %}?category=animals" class="btn btn-outline-secondary mx-2 my-1">Animals</a>
+                    <a href="{% url 'products' %}?category=children" class="btn btn-outline-secondary mx-2 my-1">Children</a>
+                    <a href="{% url 'products' %}?category=figurines" class="btn btn-outline-secondary mx-2 my-1">Figurines</a>
+                    <a href="{% url 'products' %}?category=masks" class="btn btn-outline-secondary mx-2 my-1" data-category="masks">Masks</a>
+                    <a href="{% url 'products' %}?category=prints&paintings" class="btn btn-outline-secondary mx-2 my-1">Prints & Paintings</a>
+                </div>    
+            </div>               
             <hr class="w-50 mb-1">
         </div>
     </div>

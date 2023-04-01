@@ -11,3 +11,14 @@
 .image-container {
     background: #f2f2f2;
 }
+
+.btn-group {
+    flex-wrap: wrap;
+}
+
+.btn-group .btn {
+    flex: 1 0 auto;
+    margin-bottom: 10px;
+}
+
+
