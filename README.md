@@ -353,6 +353,12 @@ Language Validators and format helpers
 
 # Credits
 
+# Boutique Ado walkthrough
+This tutorial was used as model for the products page, products detail page and shopping bag features. In an attempt to do it on my own I've created my own "scroll back to top" button and code, but when I revisited what was in the tutorial, the tutorial seemed to have a better solution. I've leaving my attempt in the project as it is my own work. 
+- My Account and shopping bag feature of header
+- Understanding how filterning works
+- Sorting JS and the view it relies on.
+
 ## General resources
 - [MDN Web docs](https://developer.mozilla.org/en-US/docs/Web/CSS/background-image) for help with background images, and their positioning.
 ## Resources consulted to create the hexagon shapes
@@ -362,8 +368,7 @@ Language Validators and format helpers
 - [Darsain's Codpen](https://codepen.io/darsain/pen/DQKWqM) 
 ## Media queries to handle hover properties
 - [Dealing with hover on mobile, Kevin Powell, Youtube](https://www.google.com/search?q=hover+effect+on+phone&oq=hover+effect+on+phone&aqs=chrome..69i57j0i22i30l2j0i390i650l5.7290j0j7&sourceid=chrome&ie=UTF-8#kpvalbx=_v3cfZODdPISZhbIPwaaSiAg_35)
-# My Account and shopping bag feature of header
-- Boutique Ado walkthrough
+
 
 # Scroll to top button on products page
 -[The Joomla Forum, How to scroll to the top smoothly, contributiion by "LikeStuff"](https://forum.joomla.org/viewtopic.php?f=706&t=971785)
