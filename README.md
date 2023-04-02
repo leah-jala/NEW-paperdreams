@@ -304,6 +304,13 @@ As many of the items on the site are fun and aim to add a bit of spice and fun i
 ### Interaction
 ### Accessibility
 
+## Installed packages / Requirements
+This project was built with Python3 and Django 3.2. The following packages were installed.
+Use pip install + app name, then add to settings. 
+
+- [Pillow](https://pillow.readthedocs.io/en/stable/) - supports images in Django
+- [djmoney](https://django-money.readthedocs.io/en/latest/) - handles money values and currencies
+- [django-allauth](https://django-allauth.readthedocs.io/en/latest/installation.html) - handles authentication and site registration
 
 ## Technologies and resources
 
@@ -361,6 +368,9 @@ This tutorial was used as model for the products page, products detail page and 
 
 ## General resources
 - [MDN Web docs](https://developer.mozilla.org/en-US/docs/Web/CSS/background-image) for help with background images, and their positioning.
+- Django documetation;
+    - [Django money](https://django-money.readthedocs.io/en/latest/)
+
 ## Resources consulted to create the hexagon shapes
 - [CSS Tricks](https://css-tricks.com/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries/) 
 - [Temani Afif's Codepen](https://codepen.io/t_afif/pen/zYoZBOy) of a responsive hexagon grid
