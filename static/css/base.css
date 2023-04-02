@@ -41,7 +41,8 @@ a.dropdown-item.active {
     color: black;
 }
 
-/* From Boutique Ado - buttons */
+
+/* Button CSS (taken from Boutique Ado) */
 
 .shop-now-button {
     background: black;
@@ -72,6 +73,10 @@ a.dropdown-item.active {
     border: 1px solid black !important;
 }
 
+.icon {
+    color: white;
+}
+
 /* Headings */
 
 h1 {
@@ -79,7 +84,6 @@ h1 {
     font-size: 32px;
 
 } 
-
 
 
 /* Footer */
