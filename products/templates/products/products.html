@@ -11,6 +11,7 @@
         <div class="col"></div>
     </div>
 </div>
+
 {% endblock %}
 
 {% block content %}
@@ -19,6 +20,11 @@
 
         <div class="col text-center mt-3">
             <h2 class="text-center">Art Work for Sale</h2>
+            <div id="delivery-banner" class="row text-center">
+                <div class="col bg-black text-white">
+                    <h4 class="my-2">Free delivery on orders over ${{ free_delivery_threshold }}!</h4>                
+                </div>            
+            </div>
             <div class="container">
                 <div class="btn-group flex-wrap justify-content-center mt-3" role="group" id="category-links">
                     <a href="{% url 'products' %}?sort=category&direction=asc"
