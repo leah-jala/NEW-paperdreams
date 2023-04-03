@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from djmoney import money
 
 # Create your views here.
 
@@ -13,12 +14,18 @@ def add_to_bag(request, item_id):
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
+    product = get_object_or_404(Product, pk=item_id)
+    item_total = product.price * quantity
 
     if item_id in list(bag.keys()):
-        bag[item_id] += quantity
+        bag[item_id]['quantity'] += quantity
+        bag[item_id]['item_total'] += item_total
     else:
-        bag[item_id] = quantity
+        bag[item_id] = {
+            'quantity': quantity,
+            'item_total': item_total,
+        }
 
     request.session['bag'] = bag
-    print(request.session['bag'])
     return redirect(redirect_url)
+
