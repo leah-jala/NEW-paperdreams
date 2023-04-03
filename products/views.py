@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Product, Category
+from .forms import AddToBagForm
 
 # Create your views here.
 
@@ -57,12 +58,24 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
-    """ A view to show individual product details """
-
     product = get_object_or_404(Product, pk=product_id)
+
+    # Initialize form object
+    form = AddToBagForm(initial={'quantity': 1})
+
+    # Check if quantity is 1 and display message
+    if product.quantity == 1:
+        messages.warning(request, "Only one left!")
+
+    # Disable Add to Bag button and display message if quantity is 0
+    if product.quantity == 0:
+        form.fields['quantity'].widget.attrs['disabled'] = 'disabled'
+        messages.warning(request, "Temporarily out of stock")
+    else:
+        form.fields['quantity'].widget.attrs['max'] = product.quantity
 
     context = {
         'product': product,
+        'form': form,
     }
-
     return render(request, 'products/product_detail.html', context)
