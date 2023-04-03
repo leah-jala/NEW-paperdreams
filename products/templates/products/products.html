@@ -23,8 +23,8 @@
             <h2 class="text-center">Art Work for Sale</h2>
             <div id="delivery-banner" class="row text-center">
                 <div class="col bg-black text-white">
-                    <h4 class="my-2">Free delivery on orders over £{{ free_delivery_threshold }}!</h4>                
-                </div>            
+                    <h4 class="my-2">Free delivery on orders over £{{ free_delivery_threshold }}!</h4>
+                </div>
             </div>
             <div class="container">
                 <div class="btn-group flex-wrap justify-content-center mt-3" role="group" id="category-links">
@@ -111,12 +111,6 @@
                                     </a>
                                 </p>
                                 {% endif %}
-                                {% if product.rating %}
-                                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} /
-                                    5</small>
-                                {% else %}
-                                <small class="text-muted"></small>
-                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -138,58 +132,79 @@
 {% block postloadjs %}
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-$(document).ready(function () {
-    // Set active category link 
-    let urlParams = new URLSearchParams(window.location.search);
-    let categoryParam = urlParams.get('category');
+    $(document).ready(function () {
+        // Set active category link 
+        let urlParams = new URLSearchParams(window.location.search);
+        let categoryParam = urlParams.get('category');
 
-    if (categoryParam) {
-        $('#category-links .btn').removeClass('btn-secondary').addClass('btn-outline-secondary');
-        $(`#category-links .btn[href*="${categoryParam}"]`).removeClass('btn-outline-secondary').addClass(
-            'btn-secondary');
-    } else {
-        $('#category-links .btn[href="{% url "products" %}"]').removeClass('btn-outline-secondary')
-            .addClass('btn-secondary');
-    }
-
-    // Handle visibility of back-to-top button
-
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 100) {
-            $('.back-to-top').fadeIn();
+        if (categoryParam) {
+            $('#category-links .btn').removeClass('btn-secondary').addClass('btn-outline-secondary');
+            $(`#category-links .btn[href*="${categoryParam}"]`).removeClass('btn-outline-secondary').addClass(
+                'btn-secondary');
         } else {
-            $('.back-to-top').fadeOut();
+            $('#category-links .btn[href="{% url "products" %}"]').removeClass('btn-outline-secondary')
+                .addClass('btn-secondary');
+        }
+
+        // Handle visibility of back-to-top button
+
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 100) {
+                $('.back-to-top').fadeIn();
+            } else {
+                $('.back-to-top').fadeOut();
+            }
+        });
+
+        $('.back-to-top').click(function () {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+
+        // Handle sorting of product list in select box
+        $('#sort-selector').change(function () {
+            var selector = $(this);
+            var currentUrl = new URL(window.location);
+
+            var selectedVal = selector.val();
+            if (selectedVal != "reset") {
+                var sort = selectedVal.split("_")[0];
+                var direction = selectedVal.split("_")[1];
+
+                currentUrl.searchParams.set("sort", sort);
+                currentUrl.searchParams.set("direction", direction);
+
+                window.location.replace(currentUrl);
+            } else {
+                currentUrl.searchParams.delete("sort");
+                currentUrl.searchParams.delete("direction");
+
+                window.location.replace(currentUrl);
+            }
+        })
+    });
+</script>
+
+<script>
+   $(document).on('click', '.add-wishlist', function(e) {
+    e.preventDefault();
+    var _pid=$(this).attr('data-product');
+    
+    $.ajax({
+        url: '/add-to-wishlist/',
+        method: 'POST',
+        data: {'product_id': _pid},
+        success: function(data) {
+            // Handle success response from server
+            console.log('Product added to wishlist');
+        },
+        error: function(xhr, status, error) {
+            // Handle error response from server
+            console.log('Error adding product to wishlist:', error);
         }
     });
-
-    $('.back-to-top').click(function () {
-        $('html, body').animate({
-            scrollTop: 0
-        }, 800);
-        return false;
-    });
-
-    // Handle sorting of product list in select box
-    $('#sort-selector').change(function () {
-        var selector = $(this);
-        var currentUrl = new URL(window.location);
-
-        var selectedVal = selector.val();
-        if (selectedVal != "reset") {
-            var sort = selectedVal.split("_")[0];
-            var direction = selectedVal.split("_")[1];
-
-            currentUrl.searchParams.set("sort", sort);
-            currentUrl.searchParams.set("direction", direction);
-
-            window.location.replace(currentUrl);
-        } else {
-            currentUrl.searchParams.delete("sort");
-            currentUrl.searchParams.delete("direction");
-
-            window.location.replace(currentUrl);
-        }
-    })
 });
 </script>
 

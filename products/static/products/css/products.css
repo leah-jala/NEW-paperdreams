@@ -28,6 +28,11 @@ h4 {
     color: #eca1a6;
 }
 
+.fa-heart {
+  cursor: pointer;
+}
+
+
 /* Add margin so products aren't behind sticky footer */
 .product-container {
     margin-bottom: 10vh; 

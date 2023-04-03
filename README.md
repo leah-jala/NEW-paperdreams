@@ -383,3 +383,6 @@ This tutorial was used as model for the products page, products detail page and 
 # Scroll to top button on products page
 -[The Joomla Forum, How to scroll to the top smoothly, contributiion by "LikeStuff"](https://forum.joomla.org/viewtopic.php?f=706&t=971785)
 - [Create Scroll Back to Top Button using jQuery and CSS](https://www.codexworld.com/back-to-top-button-using-jquery-css/#:~:text=Use%20the%20jQuery%20click%20event,to%20the%20top%20using%20jQuery.)
+
+# Wishlist
+- [Stackoverflow](https://stackoverflow.com/questions/73947103/django-add-to-wishlist?rq=1) - using the "get_or_create"
