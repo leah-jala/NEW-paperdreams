@@ -33,7 +33,7 @@
         <div class="col-12 col-md-6 col-lg-4">
             <div class="product-details-container mb-5 mt-md-5">
                 <p class="mb-0">{{ product.name }}</p>
-                <p class="lead mb-0 text-left font-weight-bold">{{ product.price }}</p>
+                <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
                 {% if product.category %}
                 <p class="small mt-1 mb-0">
                     <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
@@ -77,11 +77,12 @@
                             </div>
                             {% if product.quantity == 1 %}
                             <p class="text-muted">Only one left!</p>
-                            {% elif product.quantity == 0 %}
+                        {% elif product.quantity == 0 %}
                             <p class="text-muted">Temporarily out of stock</p>
-                            {% else %}
+                        {% else %}
                             <p class="text-muted">{{ product.quantity }} item(s) available</p>
-                            {% endif %}
+                        {% endif %}
+
 
                             <div class="col-12">
                                 <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
@@ -103,5 +104,59 @@
 {% endblock %}
 
 {% block postloadjs %}
-<script src="{% static 'products/js/products.js' %}"></script>
+<script>
+    $(document).ready(function() {
+    // Get item ID from URL and enable/disable Add to Bag button
+    var url = window.location.href;
+    var itemId = url.substring(url.lastIndexOf('/') + 1);
+    handleEnableDisable(itemId);
+
+    // Call handleEnableDisable function when quantity is changed
+    $('.qty_input').change(function() {
+        var itemId = $(this).data('item_id');
+        handleEnableDisable(itemId);
+    });
+});
+
+function handleEnableDisable(itemId) {
+    var currentValue = parseInt($('#id_qty_' + itemId).val());
+    var maxQuantity = parseInt($('#id_qty_' + itemId).attr('max'));
+    var addButton = $('#add-to-bag_' + itemId);
+    if (currentValue < 0) {
+        $('#id_qty_' + itemId).val(0);
+        return;
+    }    
+    if (currentValue > maxQuantity) {
+        addButton.attr('disabled', true);
+    } else {
+        addButton.attr('disabled', false);
+    }
+    var availableQuantity = parseInt($('#available-quantity_' + itemId).text());
+    if (currentValue > availableQuantity) {
+        $('#id_qty_' + itemId).val(availableQuantity);
+    }
+    $('#id_qty_' + itemId).attr('max', availableQuantity);
+}
+
+
+// Increment quantity
+$('.increment-qty').click(function(e) {
+    e.preventDefault();
+    var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+    var currentValue = parseInt($(closestInput).val());
+    $(closestInput).val(currentValue + 1);
+    var itemId = $(this).data('item_id');
+    handleEnableDisable(itemId);
+ });
+
+ // Decrement quantity
+ $('.decrement-qty').click(function(e) {
+    e.preventDefault();
+    var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+    var currentValue = parseInt($(closestInput).val());
+    $(closestInput).val(currentValue - 1);
+    var itemId = $(this).data('item_id');
+    handleEnableDisable(itemId);
+ });
+</script>
 {% endblock %}

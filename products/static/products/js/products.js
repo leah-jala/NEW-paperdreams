@@ -56,7 +56,6 @@
         })
     });
 
-
 // Product detail page
 
 $(document).ready(function() {
@@ -86,9 +85,6 @@ function handleEnableDisable(itemId) {
         addButton.attr('disabled', false);
     }
     var availableQuantity = parseInt($('#available-quantity_' + itemId).text());
-    if (availableQuantity == 0) {
-        addButton.attr('disabled', true);
-    }
     if (currentValue > availableQuantity) {
         $('#id_qty_' + itemId).val(availableQuantity);
     }

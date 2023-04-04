@@ -59,7 +59,7 @@ def all_products(request):
 
 def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
-
+    
     # Initialize form object
     form = AddToBagForm(initial={'quantity': 1})
 
